@@ -19,9 +19,10 @@ const CSVStatUpload = () => {
     formData.append("file", file);
 
     try {
-      const res = await axios.post("http://localhost:3000/upload-stats", formData, {
-        headers: { "Content-Type": "multipart/form-data" }
-      });
+      const res = await axios.post("https://baseball-stats-api.onrender.com/upload-stats", formData, {
+  headers: { "Content-Type": "multipart/form-data" }
+});
+
       setMessage(`✅ ${res.data.message} (${res.data.total} rows added)`);
       setFile(null);
     } catch (err) {

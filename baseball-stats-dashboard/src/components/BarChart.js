@@ -27,7 +27,8 @@ const BarChart = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/stats/leaderboard");
+        const response = await axios.get("https://baseball-stats-api.onrender.com/stats/leaderboard");
+         
         console.log("API Response:", response.data);
 
         if (response.data && response.data.length > 0) {

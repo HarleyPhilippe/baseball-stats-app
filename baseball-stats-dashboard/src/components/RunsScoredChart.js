@@ -28,7 +28,8 @@ const RunsScoredChart = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/stats/all_players/runs");
+        const response = await axios.get("https://baseball-stats-api.onrender.com/stats/all_players/runs");
+
         console.log("API Response:", response.data);
 
         if (response.data && response.data.length > 0) {

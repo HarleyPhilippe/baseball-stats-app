@@ -9,7 +9,7 @@ const PlayerManager = () => {
 
   const fetchPlayers = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/players");
+      const res = await axios.get("https://baseball-stats-api.onrender.com/players");
       setPlayers(res.data);
     } catch (err) {
       setError("Failed to fetch players");
@@ -30,9 +30,9 @@ const PlayerManager = () => {
 
     try {
       if (editingPlayerId) {
-        await axios.put(`http://localhost:3000/players/${editingPlayerId}`, form);
+        await axios.put(`https://baseball-stats-api.onrender.com/players/${editingPlayerId}`, form);
       } else {
-        await axios.post("http://localhost:3000/players", form);
+        await axios.post("https://baseball-stats-api.onrender.com/players", form);
       }
       setForm({ name: "", position: "" });
       setEditingPlayerId(null);
@@ -49,7 +49,7 @@ const PlayerManager = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/players/${id}`);
+      await axios.delete(`https://baseball-stats-api.onrender.com/players/${id}`);
       fetchPlayers();
     } catch {
       setError("Failed to delete player");
@@ -90,7 +90,9 @@ const PlayerManager = () => {
             key={player.id}
             className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-2"
           >
-            <span className="text-center sm:text-left">{player.name} ({player.position})</span>
+            <span className="text-center sm:text-left">
+              {player.name} ({player.position})
+            </span>
             <div className="flex justify-center sm:justify-end gap-2 mt-2 sm:mt-0">
               <button
                 className="text-sm bg-yellow-400 px-3 py-1 rounded"

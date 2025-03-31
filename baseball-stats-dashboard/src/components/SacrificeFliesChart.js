@@ -27,7 +27,8 @@ const SacrificeFliesChart = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/stats/all_players/sacrifice_flies");
+        const response = await axios.get("https://baseball-stats-api.onrender.com/stats/all_players/sacrifice_flies");
+
         const data = response.data;
 
         const players = [...new Set(data.map(game => game.player_name))];

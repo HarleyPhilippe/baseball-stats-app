@@ -28,7 +28,8 @@ const StolenBasesChart = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/stats/all_players/stolen_bases");
+        const response = await axios.get("https://baseball-stats-api.onrender.com/stats/all_players/stolen_bases");
+
         const data = response.data;
 
         if (data.length > 0) {

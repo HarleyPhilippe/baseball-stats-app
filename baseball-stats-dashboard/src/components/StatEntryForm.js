@@ -32,12 +32,12 @@ const StatEntryForm = () => {
   const [successMessage, setSuccessMessage] = useState("");
 
   const fetchPlayers = async () => {
-    const res = await axios.get("http://localhost:3000/players");
+    const res = await axios.get("https://baseball-stats-api.onrender.com/players");
     setPlayers(res.data);
   };
 
   const fetchGames = async () => {
-    const res = await axios.get("http://localhost:3000/games");
+    const res = await axios.get("https://baseball-stats-api.onrender.com/games");
     setGames(res.data);
   };
 
@@ -109,11 +109,11 @@ const StatEntryForm = () => {
       let gameId = formData.game_id;
 
       if (isAddingNewGame) {
-        const gameRes = await axios.post("http://localhost:3000/games", newGame);
+        const gameRes = await axios.post("https://baseball-stats-api.onrender.com/games", newGame);
         gameId = gameRes.data.game.id;
       }
 
-      await axios.post("http://localhost:3000/stats", {
+      await axios.post("https://baseball-stats-api.onrender.com/stats", {
         ...formData,
         game_id: gameId,
         player_id: parseInt(formData.player_id)

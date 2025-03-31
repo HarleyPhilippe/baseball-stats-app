@@ -6,7 +6,8 @@ import axios from "axios";
 
 const StatsExport = () => {
   const fetchStats = async () => {
-    const res = await axios.get("http://localhost:3000/stats");
+    const res = await axios.get("https://baseball-stats-api.onrender.com/stats");
+
     return res.data;
   };
 

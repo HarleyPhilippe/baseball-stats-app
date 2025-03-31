@@ -19,7 +19,7 @@ const StatsTable = () => {
 
   const fetchStats = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/stats");
+      const response = await axios.get("https://baseball-stats-api.onrender.com/stats");
       setStats(response.data);
     } catch (error) {
       console.error("Error fetching stats:", error);
@@ -37,7 +37,7 @@ const StatsTable = () => {
 
   const handleSave = async () => {
     try {
-      await axios.put(`http://localhost:3000/stats/${editingId}`, editedStat);
+      await axios.put(`https://baseball-stats-api.onrender.com/stats/${editingId}`, editedStat);
       setEditingId(null);
       fetchStats();
     } catch (error) {
@@ -48,7 +48,7 @@ const StatsTable = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this stat?")) return;
     try {
-      await axios.delete(`http://localhost:3000/stats/${id}`);
+      await axios.delete(`https://baseball-stats-api.onrender.com/stats/${id}`);
       fetchStats();
     } catch (error) {
       console.error("Error deleting stat:", error);

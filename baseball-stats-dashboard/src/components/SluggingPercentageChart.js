@@ -27,7 +27,8 @@ const SluggingPercentageChart = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/stats/all_players/slugging");
+        const response = await axios.get("https://baseball-stats-api.onrender.com/stats/all_players/slugging");
+
         console.log("API Response:", response.data);
 
         if (response.data && response.data.length > 0) {

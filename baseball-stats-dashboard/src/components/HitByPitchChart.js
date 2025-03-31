@@ -27,7 +27,8 @@ const HitByPitchChart = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/stats/all_players/hbp");
+        const response = await axios.get("https://baseball-stats-api.onrender.com/stats/all_players/hbp");
+
 
         const players = [...new Set(response.data.map(game => game.player_name))];
         setAllPlayers(players);
