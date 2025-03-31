@@ -18,7 +18,11 @@ const pool = new Pool({
 
 // PostgreSQL Connection
 
-app.use(cors());
+app.use(cors({
+  origin: "https://baseball-stats-app-ii38.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+}));
+
 app.use(express.json());
 
 // Get all players from the database
