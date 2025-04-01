@@ -12,8 +12,10 @@ const fs = require('fs');          // ✅ Import file system module
 const app = express();
 const PORT = process.env.PORT || 3000;
 const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
+  connectionString: process.env.DATABASE_URL,
+  ssl: { rejectUnauthorized: false } // required by some cloud DBs
 });
+pool.query('SET search_path TO public;');
 
 
 // PostgreSQL Connection
