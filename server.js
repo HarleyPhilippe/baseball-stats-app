@@ -27,7 +27,6 @@ const pool = new Pool({
 
 app.use(cors({
   origin: [
-    "https://baseball-stats-app-ii38.vercel.app",
     "https://baseball-stats-app-ii38-otm48f64q-harleyphilippes-projects.vercel.app"
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
