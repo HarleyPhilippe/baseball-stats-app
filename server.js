@@ -26,9 +26,13 @@ const pool = new Pool({
 // PostgreSQL Connection
 
 app.use(cors({
-  origin: "https://baseball-stats-app-ii38.vercel.app",
+  origin: [
+    "https://baseball-stats-app-ii38.vercel.app",
+    "https://baseball-stats-app-ii38-otm48f64q-harleyphilippes-projects.vercel.app"
+  ],
   methods: ["GET", "POST", "PUT", "DELETE"],
 }));
+
 
 app.use(express.json());
 
