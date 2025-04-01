@@ -871,6 +871,8 @@ app.get('/test-db', async (req, res) => {
     }
 });
 
+console.log("DATABASE_URL:", process.env.DATABASE_URL);
+
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
